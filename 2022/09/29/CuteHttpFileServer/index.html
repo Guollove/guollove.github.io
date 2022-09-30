@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>CuteHttpFileServer文档 - Guollove</title>
+
+  
+    <meta name="description" content="基本用法非系统服务运行该程序是一个控制台程序，可直接双击运行，或在控制台&#x2F;命令行中运行。可通过命令行参数进行相关配置，如使用’chfs –help’来查看帮助： 1234567891011121314151617181920212223242526272829303132333435usage: chfs.exe []Flags:  --help              Show context">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CuteHttpFileServer文档">
+<meta property="og:url" content="https://guollove.github.io/2022/09/29/CuteHttpFileServer/index.html">
+<meta property="og:site_name" content="Guollove">
+<meta property="og:description" content="基本用法非系统服务运行该程序是一个控制台程序，可直接双击运行，或在控制台&#x2F;命令行中运行。可通过命令行参数进行相关配置，如使用’chfs –help’来查看帮助： 1234567891011121314151617181920212223242526272829303132333435usage: chfs.exe []Flags:  --help              Show context">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-29T12:23:58.000Z">
+<meta property="article:modified_time" content="2022-09-30T04:56:30.076Z">
+<meta property="article:author" content="Guollove">
+<meta property="article:tag" content="工具">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.2/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://st-gdx.dancf.com/gaodingx/0/uxms/design/20210917-142144-18c9.png?x-oss-process=image/resize,w_300/interlace,1,image/format,webp" onerror="javascript:this.classList.add('error');this.src='https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg';"></a><a class="title" href="/"><div class="main">Guollove</div><div class="sub cap">Guollove</div></a></div>
+<nav class="menu dis-select"><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/notes/">便签</a><a class="nav-item" href="/about/">更多</a></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-text">基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E8%BF%90%E8%A1%8C"><span class="toc-text">非系统服务运行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A5%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E8%BF%90%E8%A1%8C"><span class="toc-text">以系统服务运行</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95"><span class="toc-text">高级用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%90%AF%E7%94%A8-HTTPS%EF%BC%9F"><span class="toc-text">如何启用 HTTPS？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%88%91%E6%83%B3%E8%87%AA%E5%B7%B1%E6%90%9E%E4%B8%80%E5%A5%97%E9%A1%B5%E9%9D%A2%EF%BC%8C%E8%AF%B7%E9%97%AE%E5%BC%80%E5%8F%91%E6%96%87%E6%A1%A3%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F"><span class="toc-text">我想自己搞一套页面，请问开发文档在哪里？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%90%AF%E7%94%A8-webdav%EF%BC%9F"><span class="toc-text">如何启用 webdav？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E8%AF%B4%E6%98%8E"><span class="toc-text">测试说明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E4%B8%BB%E6%9C%BA"><span class="toc-text">运行主机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PC-%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="toc-text">PC 浏览器</span></a></li></ol></li></ol></div></div></div>
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/guollove" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/></a><a class="social" href="https://music.163.com/#/user/home?id=1480101880" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/3845874.svg"/></a><a class="social" href="https://unsplash.com/@xaoxuu" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/3616429.svg"/></a><a class="social" href="/about/#comments" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/942ebbf1a4b91.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-09-29T12:23:58.000Z">2022-09-29</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>CuteHttpFileServer文档</span></h1>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><h4 id="非系统服务运行"><a href="#非系统服务运行" class="headerlink" title="非系统服务运行"></a>非系统服务运行</h4><p>该程序是一个控制台程序，可直接双击运行，或在控制台/命令行中运行。可通过命令行参数进行相关配置，如使用’chfs –help’来查看帮助：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">usage: chfs.exe []</span><br><span class="line"></span><br><span class="line">Flags:</span><br><span class="line">  --help              Show context-sensitive help (also try --help-long and</span><br><span class="line">                      --help-man).</span><br><span class="line">  --path=DIRECTORIES  Directories where store shared files, separated by &#x27;|&#x27;.</span><br><span class="line">  --port=PORT         HTTP listening port(Default is 80).</span><br><span class="line">  --allow=LIST        Allowed IPv4 addresses(Allow any address by default).</span><br><span class="line"></span><br><span class="line">                      White list mode: &quot;listitem1[,listitem2,...]&quot; e.g.</span><br><span class="line">                      &quot;192.168.1.2-192.168.1.10,192.169.1.222&quot; allows this 10</span><br><span class="line">                      addresses.</span><br><span class="line"></span><br><span class="line">                      Black list mode: &quot;not(listitem1[,listitem2,...])&quot; e.g.</span><br><span class="line">                      &quot;not(192.168.1.2-192.168.1.10,192.169.1.222)&quot; bans this 10</span><br><span class="line">                      addresses!</span><br><span class="line">  --rule=LIST         Access rules(anybody can access any thing by default).</span><br><span class="line"></span><br><span class="line">                      List defines like:&quot;USER:PWD:MASK[:DIR:MASK...][|...]&quot;:</span><br><span class="line"></span><br><span class="line">                        1,USER and PWD is account name and password</span><br><span class="line">                        2,MASK:&#x27;&#x27;=NO present,&#x27;r&#x27;=read,&#x27;w&#x27;=write,&#x27;d&#x27;=delete</span><br><span class="line">                        3,r=view+download,w=r+upload+create+rename,d=w+delete</span><br><span class="line">                        4,DIR is directory name, allows wildcard(&#x27;*&#x27; &amp; &#x27;?&#x27;)</span><br><span class="line">                        5,The 3rd field is access mask of shared root directory</span><br><span class="line">                        6,The optional fields is pairs of sub-directory and mask</span><br><span class="line">                        7,The optional sub-directory&#x27;s mask overwrite parent&#x27;s</span><br><span class="line">                        8,You should avoid &#x27;|&#x27; &#x27;:&#x27; and white space(exclude DIR)</span><br><span class="line"></span><br><span class="line">                      For instance: &quot;::|root:123456:rw&quot; bans guest, and defines</span><br><span class="line">                      a account &#x27;root&#x27; can do anything</span><br><span class="line">  --log=DIRECTORY     Log directory. Empty value will disable log.</span><br><span class="line">  --file=FILE         A configuration file which overwrites &amp; enhence the</span><br><span class="line">                      settings.</span><br><span class="line">  --version           Show application version.</span><br></pre></td></tr></table></figure>
+
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th><strong>help:</strong></th>
+<th>显示帮助信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>path:</strong></td>
+<td>你要共享的目录，默认为程序运行目录。如果需要共享多个目录，则用“|”符号隔开。<strong>注意：如果路径带有空格，则需要将整个路径用引号包住。</strong></td>
+</tr>
+<tr>
+<td><strong>port:</strong></td>
+<td>程序使用的端口号，默认为 80</td>
+</tr>
+<tr>
+<td><strong>allow:</strong></td>
+<td>IP 地址过滤，可使用白名单模式或黑名单模式</td>
+</tr>
+<tr>
+<td><strong>rule:</strong></td>
+<td>账户及访问权限，允许一个账户多点登陆，默认情况下匿名用户具有读写权限，其语法为： <strong>RULEITEM1[|RULEITEM2|RULEITEM3…]</strong> 每个 RULEITEM 代表一个账户信息及其访问权限，多个 RULEITEM 则用’|’进行分割，RULEITEM 的语法为： <strong>USER:PWD:MASK[:DIR:MASK…]</strong> 每个项由“:”来分隔，前三个项是必须的，分别对应：账户名、账户密码、共享目录根目录的访问权限。后面的可选的项，必须成对出现，用来设定根目录下面的子级目录的访问权限。一些规定： _ 对于匿名用户，前两个项都为空 _ 访问权限分为四种：””(不可访问)，”R”(只读)，”W”(读写)，”D”(写+删除)。读权限指的是下载，写权限指上传、新建等操作，删除权限是在写权限的基础上加上删除权限。 * 各项的值应避免出现空白键，’:’及’|’（目录名除外）</td>
+</tr>
+<tr>
+<td><strong>log:</strong></td>
+<td>用户操作日志存放目录，默认是程序所在目录下的 logs 中。禁用日志功能只需将其赋值为空即可。</td>
+</tr>
+<tr>
+<td><strong>file:</strong></td>
+<td>配置文件，该文件可配置上述配置项，语法相同，如果配置有效则覆盖对应配置项。另外，一些功能需要通过配置文件进行配置，比如页面自定义和 SSL 证书设置。<a target="_blank" rel="noopener" href="http://iscute.cn/asset/chfs.ini">下载配置文件模板</a></td>
+</tr>
+<tr>
+<td><strong>version:</strong></td>
+<td>显示程序版本号</td>
+</tr>
+</tbody></table>
+<p>几个例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//都使用默认参数，共享目录为程序运行目录，监听端口号为80</span><br><span class="line">chfs</span><br><span class="line"></span><br><span class="line">//共享目录为D盘，监听端口号为8080</span><br><span class="line">chfs --path=&quot;d:/&quot; --port=8080</span><br><span class="line"></span><br><span class="line">//共享目录为&quot;d:\\projects&quot;和&quot;e:\\nsis&quot;，监听端口号为80</span><br><span class="line">chfs --path=&quot;d:\\projects|e:\\nsis&quot;</span><br><span class="line"></span><br><span class="line">//白名单模式，允许192.168.1.2-192.168.1.100以及192.168.1.200进行访问</span><br><span class="line">chfs --allow=&quot;192.168.1.2-192.168.1.100,192.168.1.200&quot;</span><br><span class="line"></span><br><span class="line">//黑名单模式，禁止192.168.1.2-192.168.1.100以及192.168.1.200进行访问</span><br><span class="line">chfs --allow=&quot;not(192.168.1.2-192.168.1.100,192.168.1.200)&quot;</span><br><span class="line"></span><br><span class="line">//匿名用户具有只读权限（默认情况下匿名用户具有读写权限）</span><br><span class="line">//账户ceshizu，密码为ceshizu123，对根目录的权限为只读，但对test目录具有读写权限</span><br><span class="line">//账户yanfazu，密码为yanfazu123，对根目录的权限为只读，但对yanfa目录具有读写权限</span><br><span class="line">chfs --rule=&quot;::r|ceshizu:ceshizu123:r:test:rw|yanfazu:yanfazu123:r:yanfa:rw&quot;</span><br><span class="line"></span><br><span class="line">//匿名用户什么权限都没有（默认情况下匿名用户具有读写权限）</span><br><span class="line">//账户admin，密码为admin123，具有读写权限</span><br><span class="line">//账户zhangsan，密码为zhangsan123，对根目录的权限为不可读写，但对zhangsanfiles目录具有读写权限</span><br><span class="line">chfs --rule=&quot;::|admin:admin123:rw|zhangsan:zhangsan123::zhangsanfiles:rw&quot;</span><br><span class="line"></span><br><span class="line">//通过配置文件进行配置，该文件可以不存在，待以后需要更改配置时使用</span><br><span class="line">chfs --file=&quot;d:\chfs\chfs.ini&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Tips 1：在 Windows 系统中，可以使用右键弹出菜单快捷地共享某个目录。步骤如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1, 下载注册表模板文件</span><br><span class="line">2, 在该文件中编辑你的chfs.exe的真实路径，并可添加其他参数</span><br><span class="line">3, 双击该脚本文件，进行注册表添加</span><br></pre></td></tr></table></figure>
+
+<p>Tips 2：另外，有几个功能需要通过配置文件中进行配置，其中主要的配置项有：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1, html.title： 自定义网页标题</span><br><span class="line">2, html.notice: 自定义网页顶部的公告板。可以是文字，也可以是HTML标签，此时，需要适用一对``(反单引号，通过键盘左上角的ESC键下面的那个键输出)来包住所有HTML标签</span><br><span class="line">3, ssl.cert和ssl.key: 用来配置SSL，启用HTTPS</span><br><span class="line">4, folder.leaf.download: 仅最后一个目录可以打包下载</span><br><span class="line">5, session.timeout: 会话的时长，单位是分钟</span><br></pre></td></tr></table></figure>
+
+<h4 id="以系统服务运行"><a href="#以系统服务运行" class="headerlink" title="以系统服务运行"></a>以系统服务运行</h4><p>本程序不是一个服务程序，所以如果你要以系统服务运行，需要自己创建服务。下面给出 Windows 平台的创建服务方法(通过 NSSM 工具)：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1, 将chfs.exe放在指定目录，假设为：d:\program\cutehttpfileserver</span><br><span class="line">2, 到http://www.nssm.cc/download下载nssm</span><br><span class="line">3, 将解压后的nssm程序放在d:\program\cutehttpfileserver中</span><br><span class="line">4, 在d:\program\cutehttpfileserver中运行命令行，或运行命令行并CD至该目录</span><br><span class="line">5, 假设你的服务名称为cute_http_file_service，命令行中输入：nssm install cute_http_file_service</span><br><span class="line">6, NSSM会弹出配置对话框，在该对话框中输入程序路径以及运行参数</span><br><span class="line">7, 启动服务，命令行中输入：nssm start cute_http_file_service</span><br></pre></td></tr></table></figure>
+
+<h3 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h3><h4 id="如何启用-HTTPS？"><a href="#如何启用-HTTPS？" class="headerlink" title="如何启用 HTTPS？"></a>如何启用 HTTPS？</h4><p>配置文件中有 ssl.cert 和 ssl.key 两个键值，设置好对应的文件目录即可。另外，chfs 支持的最低 SSL 版本为 SSLv3，不兼容 SSL2 的握手。对了，别忘了将监听端口设置为 443</p>
+<h4 id="我想自己搞一套页面，请问开发文档在哪里？"><a href="#我想自己搞一套页面，请问开发文档在哪里？" class="headerlink" title="我想自己搞一套页面，请问开发文档在哪里？"></a>我想自己搞一套页面，请问开发文档在哪里？</h4><p>运行 chfs 后，通过地址:<a href="http://host:port/asset/api.html">http://host:port/asset/api.html</a> 访问 API 文档。</p>
+<h4 id="如何启用-webdav？"><a href="#如何启用-webdav？" class="headerlink" title="如何启用 webdav？"></a>如何启用 webdav？</h4><p>程序默认支持 webdav，跟 http 共用同一套访问规则。其地址为：<a href="http://host:port/webdav">http://host:port/webdav</a></p>
+<h3 id="测试说明"><a href="#测试说明" class="headerlink" title="测试说明"></a>测试说明</h3><h4 id="运行主机"><a href="#运行主机" class="headerlink" title="运行主机"></a>运行主机</h4><p><strong>Windows XP：</strong>√</p>
+<p><strong>Windows 10：</strong>√</p>
+<p><strong>Debian 9：</strong>√</p>
+<p><strong>CentOS 7：</strong>√</p>
+<p><strong>其他：</strong>未测试</p>
+<h4 id="PC-浏览器"><a href="#PC-浏览器" class="headerlink" title="PC 浏览器"></a>PC 浏览器</h4><p><strong>IE：</strong>11+ √</p>
+<p><strong>Edge：</strong>√</p>
+<p><strong>Firefox：</strong>√</p>
+<p><strong>Chrome：</strong>√</p>
+<p><strong>Opera：</strong>√</p>
+<p><strong>Safari：</strong>√</p>
+<p>**其他:**未测试</p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section><section id="share"><div class="header"><span>分享文章</span></div><div class="body"><div class="link"><input class="copy-area" readonly="true" id="copy-link" value="https://guollove.github.io/2022/09/29/CuteHttpFileServer/" /></div><div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot)"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/b32ef3da1162a.svg"/></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=https://guollove.github.io/2022/09/29/CuteHttpFileServer/&title=CuteHttpFileServer文档 - Guollove&summary=基本用法非系统服务运行该程序是一个控制台程序，可直接双击运行，或在控制台/命令行中运行。可通过命令行参数进行相关配置，如使用’chfs –help’来查看帮助：
+123456789101112131415161718192021222..."><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/80c07e4dbb303.svg"/></a><a class="social share-item email" href="mailto:?subject=CuteHttpFileServer文档 - Guollove&amp;body=https://guollove.github.io/2022/09/29/CuteHttpFileServer/"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/a1b00e20f425d.svg"/></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/8411ed322ced6.svg"/></a></div><div class="qrcode" id="qrcode-wechat" style="visibility:hidden;height:0"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://guollove.github.io/2022/09/29/CuteHttpFileServer/index.html"/></div></div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/09/13/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Git常用命令<span class="note">较早</span></a><div class="line"></div></section></div>
+
+
+
+
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      快来参与讨论吧
+    </div>
+    <div class='cmt-body valine'>
+      
+
+<div id="valine_container" class="valine_thread"><svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </div>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/%E5%BC%80%E6%BA%90%E5%BA%93/">开源库</a><a href="/wiki/tags/%E5%AE%9E%E7%94%A8%E8%84%9A%E6%9C%AC/">实用脚本</a><a href="/wiki/tags/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98/">博客主题</a><a href="/wiki/tags/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/">应用程序</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/about/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/guollove">GitHub</a><a target="_blank" rel="noopener" href="http://42.192.89.158:8099/explore">GitLab</a></div></div><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="https://guollove.github.io/">@Guollove</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题，您可以在 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/xaoxuu.github.io/">GitHub</a> 找到本站源码。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function getEmojiMaps() {
+    function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+    }
+    var emojiMaps = {};
+    for (var i = 1; i <= 54; i++) {
+      emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+    }
+    for (var i = 1; i <= 101; i++) {
+      emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+    }
+    for (var i = 1; i <= 116; i++) {
+      emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+    }
+    for (var i = 1; i <= 125; i++) {
+      emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+    }
+    for (var i = 1; i <= 4; i++) {
+      emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+    }
+    return emojiMaps;
+  }
+  function load_comment(){
+    if(!document.getElementById("valine_container"))return;
+    stellar.loadScript('https://fastly.jsdelivr.net/gh/XuxuGood/simple-blog-cdn@main/js/Valine.min.js', {defer:true}).then(function () {
+      const el = document.getElementById("valine_container");
+      var path = el.getAttribute('comment_id');
+      const placeholder = "";
+      if (!path) {
+        path = decodeURI(window.location.pathname);
+      }
+      var valine = new Valine();
+      valine.init(Object.assign({"js":"https://fastly.jsdelivr.net/gh/XuxuGood/simple-blog-cdn@main/js/Valine.min.js","appId":"RTtUw37abzE8770XhWPupuBI-gzGzoHsz","appKey":"tOP2o0jOdBqqijxlUQbcrCXF","placeholder":null,"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false,"tagMeta":["博主","小伙伴","访客"],"metaPlaceholder":{"nick":"昵称/QQ号(必填)","mail":"邮箱（必填，完全保密）","link":"网址(https://)"},"master":["6783037F2DF30EAB99F9FC256157D875"],"friends":["6783037F2DF30EAB99F9FC256157D875"]}, {
+        el: '#valine_container',
+        path: path,
+        placeholder: placeholder,
+        emojiCDN: 'https://fastly.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+        emojiMaps: getEmojiMaps(),
+      }));
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    load_comment();
+  });
+
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
