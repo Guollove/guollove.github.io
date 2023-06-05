@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.2">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>乐学喵接口文档 - Guollove</title>
+
+  
+    <meta name="description" content="api 接口">
+<meta property="og:type" content="article">
+<meta property="og:title" content="乐学喵接口文档">
+<meta property="og:url" content="https://guollove.github.io/2022/10/14/2022-10-14%E4%B9%90%E5%AD%A6%E5%96%B5%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/index.html">
+<meta property="og:site_name" content="Guollove">
+<meta property="og:description" content="api 接口">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-10-14T03:44:16.000Z">
+<meta property="article:modified_time" content="2023-04-13T14:56:27.720Z">
+<meta property="article:author" content="Guollove">
+<meta property="article:tag" content="Web">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.2/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://st-gdx.dancf.com/gaodingx/0/uxms/design/20210917-142144-18c9.png?x-oss-process=image/resize,w_300/interlace,1,image/format,webp" onerror="javascript:this.classList.add('error');this.src='https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg';"></a><a class="title" href="/"><div class="main">Guollove</div><div class="sub cap">Guollove</div></a></div>
+<nav class="menu dis-select"><a class="nav-item active" href="/">文章</a><a class="nav-item" href="/wiki/">项目</a><a class="nav-item" href="/notes/">便签</a><a class="nav-item" href="/about/">更多</a></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3%E7%9A%84%E7%9B%B8%E5%85%B3-api-%E5%9C%B0%E5%9D%80"><span class="toc-text">1.接口文档的相关 api 地址</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E6%8E%A5%E5%8F%A3-api-%E8%AF%B4%E6%98%8E"><span class="toc-text">1.1 接口 api 说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E7%8A%B6%E6%80%81%E7%A0%81%E8%AF%B4%E6%98%8E"><span class="toc-text">1.2 状态码说明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%80%89%E8%AF%BE%E9%A1%B5%E9%9D%A2"><span class="toc-text">2.选课页面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E9%80%89%E8%AF%BE%E8%80%83%E8%AF%95%E5%88%86%E7%B1%BB"><span class="toc-text">2.1 选课考试分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E9%80%89%E6%8B%A9%E8%80%83%E8%AF%95%E5%88%86%E7%B1%BB%E8%AF%A6%E6%83%85"><span class="toc-text">2.2 选择考试分类详情</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-%E9%A1%B6%E9%83%A8%E5%AF%BC%E8%88%AA%E5%B7%A6%E8%BE%B9%E6%A0%87%E9%A2%98"><span class="toc-text">2.3 顶部导航左边标题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-%E4%BB%8A%E6%97%A5%E7%9B%B4%E6%92%AD"><span class="toc-text">2.4 今日直播</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5tab-%E5%86%85%E5%AE%B9"><span class="toc-text">2.5tab 内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-%E8%BF%91%E6%9C%9F%E5%85%AC%E5%BC%80%E8%AF%BE"><span class="toc-text">2.6 近期公开课</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-7-%E6%8E%A8%E8%8D%90%E5%A5%BD%E8%AF%BE"><span class="toc-text">2.7 推荐好课</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-8banner-%E5%88%97%E8%A1%A8"><span class="toc-text">2.8banner 列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-9-%E7%82%B9%E5%87%BB-tabs-%E5%88%87%E6%8D%A2%E6%95%B0%E6%8D%AE%E5%92%8C%E6%90%9C%E7%B4%A2"><span class="toc-text">2.9 点击 tabs 切换数据和搜索</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%AF%A6%E6%83%85"><span class="toc-text">3.详情</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E8%AF%A6%E6%83%85-info-%E6%95%B0%E6%8D%AE"><span class="toc-text">3.1 详情 info 数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E8%AF%A6%E6%83%85%E8%AF%BE%E7%A8%8B%E8%AF%84%E4%BB%B7"><span class="toc-text">3.2 详情课程评价</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-%E8%AF%A6%E6%83%85%E7%9A%84%E6%97%B6%E9%97%B4%E6%8E%92%E5%BA%8F"><span class="toc-text">3.3 详情的时间排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-%E8%AF%BE%E5%89%8D%E5%87%86%E5%A4%87"><span class="toc-text">3.4 课前准备</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%88%91%E7%9A%84%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C"><span class="toc-text">4.我的登录注册</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E5%9B%BE%E5%BD%A2%E9%AA%8C%E8%AF%81%E7%A0%81"><span class="toc-text">4.1 图形验证码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2appLogo"><span class="toc-text">4.2appLogo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-%E8%8E%B7%E5%8F%96%E6%89%8B%E6%9C%BA%E9%AA%8C%E8%AF%81%E7%A0%81"><span class="toc-text">4.3 获取手机验证码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C%E9%A1%B5%E7%99%BB%E5%BD%95"><span class="toc-text">4.4 登录注册页登录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81"><span class="toc-text">4.5 设置密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-6-%E7%94%A8%E6%88%B7%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-text">4.6 用户基本信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-7-%E5%85%B3%E4%BA%8E%E6%88%91%E4%BB%AC"><span class="toc-text">4.7 关于我们</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-8-%E6%9B%B4%E6%96%B0%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="toc-text">4.8 更新用户信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-9-%E7%9C%81%E5%B8%82%E5%8C%BA%E6%8E%A5%E5%8F%A3"><span class="toc-text">4.9 省市区接口</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%94%B6%E8%97%8F"><span class="toc-text">5.收藏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-%E6%94%B6%E8%97%8F%E7%9A%84%E6%B7%BB%E5%8A%A0%E5%92%8C%E5%88%A0%E9%99%A4"><span class="toc-text">5.1 收藏的添加和删除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-%E6%94%B6%E8%97%8F%E7%9A%84%E5%88%97%E8%A1%A8"><span class="toc-text">5.2 收藏的列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-%E6%88%91%E7%9A%84%E4%BC%98%E6%83%A0%E5%88%B8"><span class="toc-text">5.3 我的优惠券</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-%E9%97%AE%E9%A2%98%E5%8F%8D%E9%A6%88"><span class="toc-text">5.4 问题反馈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-5-%E6%88%91%E7%9A%84%E6%B6%88%E6%81%AF"><span class="toc-text">5.5 我的消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-5-%E6%88%91%E7%9A%84%E8%AE%A2%E5%8D%95"><span class="toc-text">5.5 我的订单</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-6-%E8%AE%A2%E5%8D%95%E8%AF%A6%E6%83%85"><span class="toc-text">5.6 订单详情</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B"><span class="toc-text">6.学习课程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-%E6%88%91%E7%9A%84%E8%AF%BE"><span class="toc-text">6.1 我的课</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-%E5%85%A8%E9%83%A8%E8%AF%BE%E7%A8%8B%E5%88%A4%E6%96%AD"><span class="toc-text">6.2 全部课程判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95"><span class="toc-text">6.3 学习记录</span></a></li></ol></li></ol></div></div></div>
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/guollove" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/></a><a class="social" href="https://music.163.com/#/user/home?id=1480101880" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/3845874.svg"/></a><a class="social" href="https://unsplash.com/@xaoxuu" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/3616429.svg"/></a><a class="social" href="/about/#comments" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/942ebbf1a4b91.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8E%A5%E5%8F%A3/">接口</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-10-14T03:44:16.000Z">2022-10-14</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>乐学喵接口文档</span></h1>
+<p>api 接口</p>
+<span id="more"></span>
+
+<h1 id="一-乐学喵接口管理地址"><a href="#一-乐学喵接口管理地址" class="headerlink" title="一.乐学喵接口管理地址"></a>一.乐学喵接口管理地址</h1><h3 id="1-接口文档的相关-api-地址"><a href="#1-接口文档的相关-api-地址" class="headerlink" title="1.接口文档的相关 api 地址"></a>1.接口文档的相关 api 地址</h3><h4 id="1-1-接口-api-说明"><a href="#1-1-接口-api-说明" class="headerlink" title="1.1 接口 api 说明"></a>1.1 接口 api 说明</h4><blockquote>
+<p>基准地址:<a target="_blank" rel="noopener" href="https://www.lexuemiao.com/api/">https://www.lexuemiao.com/api/</a></p>
+</blockquote>
+<blockquote>
+<p>相关说明后期添加…</p>
+</blockquote>
+<h4 id="1-2-状态码说明"><a href="#1-2-状态码说明" class="headerlink" title="1.2 状态码说明"></a>1.2 状态码说明</h4><ul>
+<li>成功状态码:200</li>
+<li>课程不存在:201</li>
+<li>404 not found</li>
+</ul>
+<h3 id="2-选课页面"><a href="#2-选课页面" class="headerlink" title="2.选课页面"></a>2.选课页面</h3><h4 id="2-1-选课考试分类"><a href="#2-1-选课考试分类" class="headerlink" title="2.1 选课考试分类"></a>2.1 选课考试分类</h4><ul>
+<li><p>请求路径:home/getFirstClassify</p>
+</li>
+<li><p>请求方式:GET</p>
+</li>
+<li><p>相应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;code&quot;</span>: <span class="number">200</span>,</span><br><span class="line">	<span class="string">&quot;msg&quot;</span>: <span class="string">&quot;成功&quot;</span>,</span><br><span class="line">	<span class="string">&quot;data&quot;</span>: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;id&quot;</span>: <span class="number">1</span>,</span><br><span class="line">			<span class="string">&quot;title&quot;</span>: <span class="string">&quot;管理类联考&quot;</span>,</span><br><span class="line">			<span class="string">&quot;brief&quot;</span>: <span class="string">&quot;（会计/审计/图情/物流/工业工程/MBA/MPA/MEM）&quot;</span>,</span><br><span class="line">			<span class="string">&quot;is_show&quot;</span>: <span class="number">1</span></span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;id&quot;</span>: <span class="number">3</span>,</span><br><span class="line">			<span class="string">&quot;title&quot;</span>: <span class="string">&quot;考研公共课&quot;</span>,</span><br><span class="line">			<span class="string">&quot;brief&quot;</span>: <span class="string">&quot;(英语/政治)&quot;</span>,</span><br><span class="line">			<span class="string">&quot;is_show&quot;</span>: <span class="number">1</span></span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;id&quot;</span>: <span class="number">2</span>,</span><br><span class="line">			<span class="string">&quot;title&quot;</span>: <span class="string">&quot;经济类联考&quot;</span>,</span><br><span class="line">			<span class="string">&quot;brief&quot;</span>: <span class="string">&quot;（金融/应用统计/税务/国际商务/保险/资产评估）&quot;</span>,</span><br><span class="line">			<span class="string">&quot;is_show&quot;</span>: <span class="number">1</span></span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;id&quot;</span>: <span class="number">54</span>,</span><br><span class="line">			<span class="string">&quot;title&quot;</span>: <span class="string">&quot;四六级&quot;</span>,</span><br><span class="line">			<span class="string">&quot;brief&quot;</span>: <span class="literal">null</span>,</span><br><span class="line">			<span class="string">&quot;is_show&quot;</span>: <span class="number">0</span></span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;id&quot;</span>: <span class="number">57</span>,</span><br><span class="line">			<span class="string">&quot;title&quot;</span>: <span class="string">&quot;翻译硕士&quot;</span>,</span><br><span class="line">			<span class="string">&quot;brief&quot;</span>: <span class="literal">null</span>,</span><br><span class="line">			<span class="string">&quot;is_show&quot;</span>: <span class="number">0</span></span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;id&quot;</span>: <span class="number">87</span>,</span><br><span class="line">			<span class="string">&quot;title&quot;</span>: <span class="string">&quot;教育综合&quot;</span>,</span><br><span class="line">			<span class="string">&quot;brief&quot;</span>: <span class="literal">null</span>,</span><br><span class="line">			<span class="string">&quot;is_show&quot;</span>: <span class="number">0</span></span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2-2-选择考试分类详情"><a href="#2-2-选择考试分类详情" class="headerlink" title="2.2 选择考试分类详情"></a>2.2 选择考试分类详情</h4><ul>
+<li><p>请求路径:home/getMajor/:classify_id 【url 的动态路径，不能为空】</p>
+</li>
+<li><p>请求方式:GET</p>
+</li>
+<li><p>请求参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>classify_id</strong></td>
+<td>父级分类 id</td>
+<td>可以为空</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;code&quot;</span>: <span class="number">200</span>,</span><br><span class="line">	<span class="string">&quot;msg&quot;</span>: <span class="string">&quot;成功&quot;</span>,</span><br><span class="line">	<span class="string">&quot;data&quot;</span>: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;major_id&quot;</span>: <span class="number">12</span>,</span><br><span class="line">			<span class="string">&quot;major_name&quot;</span>: <span class="string">&quot;会计硕士(MPAcc)&quot;</span></span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;major_id&quot;</span>: <span class="number">13</span>,</span><br><span class="line">			<span class="string">&quot;major_name&quot;</span>: <span class="string">&quot;工商管理硕士(MBA)&quot;</span></span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;major_id&quot;</span>: <span class="number">14</span>,</span><br><span class="line">			<span class="string">&quot;major_name&quot;</span>: <span class="string">&quot;审计硕士(MAud)&quot;</span></span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;major_id&quot;</span>: <span class="number">16</span>,</span><br><span class="line">			<span class="string">&quot;major_name&quot;</span>: <span class="string">&quot;图书情报硕士(MLIS)&quot;</span></span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;major_id&quot;</span>: <span class="number">18</span>,</span><br><span class="line">			<span class="string">&quot;major_name&quot;</span>: <span class="string">&quot;物流工程与管理（125604）&quot;</span></span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;major_id&quot;</span>: <span class="number">20</span>,</span><br><span class="line">			<span class="string">&quot;major_name&quot;</span>: <span class="string">&quot;工业工程与管理（125603）&quot;</span></span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;major_id&quot;</span>: <span class="number">15</span>,</span><br><span class="line">			<span class="string">&quot;major_name&quot;</span>: <span class="string">&quot;公共管理硕士(MPA)&quot;</span></span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;major_id&quot;</span>: <span class="number">17</span>,</span><br><span class="line">			<span class="string">&quot;major_name&quot;</span>: <span class="string">&quot;工程管理与硕士（MEM）&quot;</span></span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;major_id&quot;</span>: <span class="number">19</span>,</span><br><span class="line">			<span class="string">&quot;major_name&quot;</span>: <span class="string">&quot;旅游管理硕士（MTA）&quot;</span></span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2-3-顶部导航左边标题"><a href="#2-3-顶部导航左边标题" class="headerlink" title="2.3 顶部导航左边标题"></a>2.3 顶部导航左边标题</h4><ul>
+<li><p>请求路径:home/exam/:classify_id 【url 的动态路径，不能为空】</p>
+</li>
+<li><p>请求方式:GET</p>
+</li>
+<li><p>请求参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>classify_id</strong></td>
+<td>需要渲染的 id</td>
+<td>可以为空</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;code&quot;</span>: <span class="number">200</span>,</span><br><span class="line">	<span class="string">&quot;msg&quot;</span>: <span class="string">&quot;成功&quot;</span>,</span><br><span class="line">	<span class="string">&quot;data&quot;</span>: &#123;</span><br><span class="line">		<span class="string">&quot;id&quot;</span>: <span class="number">3</span>,</span><br><span class="line">		<span class="string">&quot;title&quot;</span>: <span class="string">&quot;考研公共课&quot;</span>,</span><br><span class="line">		<span class="string">&quot;is_show&quot;</span>: <span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2-4-今日直播"><a href="#2-4-今日直播" class="headerlink" title="2.4 今日直播"></a>2.4 今日直播</h4><ul>
+<li><p>请求路径:home/liveToday/:classify_id 【url 的动态路径，不能为空】</p>
+</li>
+<li><p>请求方式:GET</p>
+</li>
+<li><p>请求参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>classify_id</strong></td>
+<td>需要渲染的 id</td>
+<td>可以为空</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;code&quot;</span>: <span class="number">200</span>,</span><br><span class="line">	<span class="string">&quot;msg&quot;</span>: <span class="string">&quot;成功&quot;</span>,</span><br><span class="line">	<span class="string">&quot;data&quot;</span>: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;id&quot;</span>: <span class="number">13028</span>,</span><br><span class="line">			<span class="string">&quot;title&quot;</span>: <span class="string">&quot;5月时政热点解读&quot;</span>,</span><br><span class="line">			<span class="string">&quot;course_chapter_id&quot;</span>: <span class="number">16367</span>,</span><br><span class="line">			<span class="string">&quot;room_video_id&quot;</span>: <span class="string">&quot;22060646895771&quot;</span>,</span><br><span class="line">			<span class="string">&quot;start_play&quot;</span>: <span class="number">1654599600</span>,</span><br><span class="line">			<span class="string">&quot;end_play&quot;</span>: <span class="number">1654605000</span>,</span><br><span class="line">			<span class="string">&quot;course_basis_id&quot;</span>: <span class="number">1303</span>,</span><br><span class="line">			<span class="string">&quot;basis_title&quot;</span>: <span class="string">&quot;23考研丨2022全年度艺姐时政热点解读&quot;</span>,</span><br><span class="line">			<span class="string">&quot;chapter_title&quot;</span>: <span class="string">&quot;艺姐2022全年时政解读&quot;</span>,</span><br><span class="line">			<span class="string">&quot;is_playback&quot;</span>: <span class="number">1</span>,</span><br><span class="line">			<span class="string">&quot;parent_course_chapter_id&quot;</span>: <span class="number">13027</span>,</span><br><span class="line">			<span class="string">&quot;course_type&quot;</span>: <span class="number">9</span>,</span><br><span class="line">			<span class="string">&quot;is_public&quot;</span>: <span class="number">1</span>,</span><br><span class="line">			<span class="string">&quot;play_type&quot;</span>: <span class="number">4</span>,</span><br><span class="line">			<span class="string">&quot;is_buy&quot;</span>: <span class="number">0</span>,</span><br><span class="line">			<span class="string">&quot;sys_course_id&quot;</span>: <span class="number">1302</span></span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2-5tab-内容"><a href="#2-5tab-内容" class="headerlink" title="2.5tab 内容"></a>2.5tab 内容</h4><ul>
+<li><p>请求路径:home/getSecondClassify/:classify_id 【url 的动态路径，不能为空】</p>
+</li>
+<li><p>请求方式:GET</p>
+</li>
+<li><p>请求参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>classify_id</strong></td>
+<td>需要渲染的 id</td>
+<td>可以为空</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;code&quot;</span>: <span class="number">200</span>,</span><br><span class="line">	<span class="string">&quot;msg&quot;</span>: <span class="string">&quot;成功&quot;</span>,</span><br><span class="line">	<span class="string">&quot;data&quot;</span>: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2-6-近期公开课"><a href="#2-6-近期公开课" class="headerlink" title="2.6 近期公开课"></a>2.6 近期公开课</h4><ul>
+<li><p>请求路径:home/marketingCourse/:classify_id 【url 的动态路径，不能为空】</p>
+</li>
+<li><p>请求方式:GET</p>
+</li>
+<li><p>请求参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>classify_id</strong></td>
+<td>需要渲染的 id</td>
+<td>可以为空</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;code&quot;</span>: <span class="number">200</span>,</span><br><span class="line">	<span class="string">&quot;msg&quot;</span>: <span class="string">&quot;成功&quot;</span>,</span><br><span class="line">	<span class="string">&quot;data&quot;</span>: &#123;</span><br><span class="line">		<span class="string">&quot;id&quot;</span>: <span class="number">14</span>,</span><br><span class="line">		<span class="string">&quot;model_name&quot;</span>: <span class="string">&quot;近期公开课&quot;</span>,</span><br><span class="line">		<span class="string">&quot;classify_id&quot;</span>: <span class="number">3</span>,</span><br><span class="line">		<span class="string">&quot;created_at&quot;</span>: <span class="number">1618581932</span>,</span><br><span class="line">		<span class="string">&quot;created_id&quot;</span>: <span class="number">100</span>,</span><br><span class="line">		<span class="string">&quot;updated_at&quot;</span>: <span class="number">1648467735</span>,</span><br><span class="line">		<span class="string">&quot;course_list&quot;</span>: []</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2-7-推荐好课"><a href="#2-7-推荐好课" class="headerlink" title="2.7 推荐好课"></a>2.7 推荐好课</h4><ul>
+<li><p>请求路径:home/recommendCourse/:classify_id 【url 的动态路径，不能为空】</p>
+</li>
+<li><p>请求方式:GET</p>
+</li>
+<li><p>请求参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>classify_id</strong></td>
+<td>需要渲染的 id</td>
+<td>可以为空</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;code&quot;</span>: <span class="number">200</span>,</span><br><span class="line">	<span class="string">&quot;msg&quot;</span>: <span class="string">&quot;成功&quot;</span>,</span><br><span class="line">	<span class="string">&quot;data&quot;</span>: &#123;</span><br><span class="line">		<span class="string">&quot;id&quot;</span>: <span class="number">10</span>,</span><br><span class="line">		<span class="string">&quot;model_name&quot;</span>: <span class="string">&quot;推荐好课&quot;</span>,</span><br><span class="line">		<span class="string">&quot;classify_id&quot;</span>: <span class="number">3</span>,</span><br><span class="line">		<span class="string">&quot;created_at&quot;</span>: <span class="number">1618582938</span>,</span><br><span class="line">		<span class="string">&quot;created_id&quot;</span>: <span class="number">100</span>,</span><br><span class="line">		<span class="string">&quot;updated_at&quot;</span>: <span class="number">1648467741</span>,</span><br><span class="line">		<span class="string">&quot;course_list&quot;</span>: []</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2-8banner-列表"><a href="#2-8banner-列表" class="headerlink" title="2.8banner 列表"></a>2.8banner 列表</h4><ul>
+<li><p>请求路径:home/banner/当前点击的 tab 的 id/4</p>
+</li>
+<li><p>请求方式:GET</p>
+</li>
+<li><p>响应参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;code&quot;</span>: <span class="number">200</span>,</span><br><span class="line">	<span class="string">&quot;msg&quot;</span>: <span class="string">&quot;成功&quot;</span>,</span><br><span class="line">	<span class="string">&quot;data&quot;</span>: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;id&quot;</span>: <span class="number">252</span>,</span><br><span class="line">			<span class="string">&quot;title&quot;</span>: <span class="string">&quot;23康哥英语二VIP弟子班&quot;</span>,</span><br><span class="line">			<span class="string">&quot;classify_id&quot;</span>: <span class="number">12</span>,</span><br><span class="line">			<span class="string">&quot;banner_img&quot;</span>: <span class="string">&quot;https://lexuemiao.oss-cn-beijing.aliyuncs.com/uploads/image/2021hpli7wd91638415730.jpg&quot;</span>,</span><br><span class="line">			<span class="string">&quot;banner_type_id&quot;</span>: <span class="number">4</span>,</span><br><span class="line">			<span class="string">&quot;link_local&quot;</span>: <span class="number">1</span>,</span><br><span class="line">			<span class="string">&quot;jump_type&quot;</span>: <span class="number">1</span>,</span><br><span class="line">			<span class="string">&quot;link_style&quot;</span>: <span class="number">2</span>,</span><br><span class="line">			<span class="string">&quot;link&quot;</span>: <span class="string">&quot;900&quot;</span>,</span><br><span class="line">			<span class="string">&quot;status&quot;</span>: <span class="number">0</span>,</span><br><span class="line">			<span class="string">&quot;sort&quot;</span>: <span class="number">6</span>,</span><br><span class="line">			<span class="string">&quot;created_at&quot;</span>: <span class="number">1638415737</span>,</span><br><span class="line">			<span class="string">&quot;updated_at&quot;</span>: <span class="number">1639970592</span></span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;id&quot;</span>: <span class="number">284</span>,</span><br><span class="line">			<span class="string">&quot;title&quot;</span>: <span class="string">&quot;23康哥英语一VIP弟子班&quot;</span>,</span><br><span class="line">			<span class="string">&quot;classify_id&quot;</span>: <span class="number">12</span>,</span><br><span class="line">			<span class="string">&quot;banner_img&quot;</span>: <span class="string">&quot;https://lexuemiao.oss-cn-beijing.aliyuncs.com/uploads/image/2021x7wzo5fw1639970654.png&quot;</span>,</span><br><span class="line">			<span class="string">&quot;banner_type_id&quot;</span>: <span class="number">4</span>,</span><br><span class="line">			<span class="string">&quot;link_local&quot;</span>: <span class="number">1</span>,</span><br><span class="line">			<span class="string">&quot;jump_type&quot;</span>: <span class="number">1</span>,</span><br><span class="line">			<span class="string">&quot;link_style&quot;</span>: <span class="number">2</span>,</span><br><span class="line">			<span class="string">&quot;link&quot;</span>: <span class="string">&quot;899&quot;</span>,</span><br><span class="line">			<span class="string">&quot;status&quot;</span>: <span class="number">0</span>,</span><br><span class="line">			<span class="string">&quot;sort&quot;</span>: <span class="number">5</span>,</span><br><span class="line">			<span class="string">&quot;created_at&quot;</span>: <span class="number">1639970657</span>,</span><br><span class="line">			<span class="string">&quot;updated_at&quot;</span>: <span class="number">1639970657</span></span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2-9-点击-tabs-切换数据和搜索"><a href="#2-9-点击-tabs-切换数据和搜索" class="headerlink" title="2.9 点击 tabs 切换数据和搜索"></a>2.9 点击 tabs 切换数据和搜索</h4><ul>
+<li><p>请求路径:home/classifyCourse/:<strong>classify_id</strong> 【url 的动态路径，不能为空】</p>
+</li>
+<li><p>请求方式:GET</p>
+</li>
+<li><p>请求参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>page</strong></td>
+<td>页码</td>
+<td>可以为空</td>
+</tr>
+<tr>
+<td><strong>limit</strong></td>
+<td>条数</td>
+<td>可以为空</td>
+</tr>
+<tr>
+<td><strong>classify_id</strong></td>
+<td>当前点击的 tabs 的 id</td>
+<td>可以为空</td>
+</tr>
+<tr>
+<td>title</td>
+<td>搜索字段</td>
+<td>可以为空</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;code&quot;</span>: <span class="number">200</span>,</span><br><span class="line">	<span class="string">&quot;msg&quot;</span>: <span class="string">&quot;成功&quot;</span>,</span><br><span class="line">	<span class="string">&quot;limit&quot;</span>: <span class="number">15</span>,</span><br><span class="line">	<span class="string">&quot;total_count&quot;</span>: <span class="number">8</span>,</span><br><span class="line">	<span class="string">&quot;page&quot;</span>: <span class="number">1</span>,</span><br><span class="line">	<span class="string">&quot;data&quot;</span>: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="3-详情"><a href="#3-详情" class="headerlink" title="3.详情"></a>3.详情</h3><h4 id="3-1-详情-info-数据"><a href="#3-1-详情-info-数据" class="headerlink" title="3.1 详情 info 数据"></a>3.1 详情 info 数据</h4><ul>
+<li><p>请求路径：courseInfo/basis_id=:basis_id/st=0 【url 路径动态】</p>
+</li>
+<li><p>请求方式：GET</p>
+</li>
+<li><p>请求参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>basis_id</strong></td>
+<td>讲师 id</td>
+<td>可以为空</td>
+</tr>
+<tr>
+<td><strong>st</strong></td>
+<td>0</td>
+<td>可以为空</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;code&quot;</span>: <span class="number">200</span>,</span><br><span class="line">	<span class="string">&quot;msg&quot;</span>: <span class="string">&quot;成功&quot;</span>,</span><br><span class="line">	<span class="string">&quot;data&quot;</span>: &#123;</span><br><span class="line">        <span class="comment">//基本信息</span></span><br><span class="line">		<span class="string">&quot;info&quot;</span>: &#123;&#125;,</span><br><span class="line">        <span class="comment">//banner列表</span></span><br><span class="line">		<span class="string">&quot;banner&quot;</span>: [],</span><br><span class="line">		<span class="string">&quot;recommend&quot;</span>: [],</span><br><span class="line">		<span class="string">&quot;label_list&quot;</span>: [],</span><br><span class="line">         <span class="comment">//课程安排中的章节分类</span></span><br><span class="line">		<span class="string">&quot;course_periods&quot;</span>: [],</span><br><span class="line">		<span class="string">&quot;datum&quot;</span>: [],</span><br><span class="line">        <span class="comment">//资料下载</span></span><br><span class="line">		<span class="string">&quot;course_datum&quot;</span>: []</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3-2-详情课程评价"><a href="#3-2-详情课程评价" class="headerlink" title="3.2 详情课程评价"></a>3.2 详情课程评价</h4><ul>
+<li><p>请求路径：getAllCommentByType</p>
+</li>
+<li><p>请求方式：POST</p>
+</li>
+<li><p>请求参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>course_id</td>
+<td>详情 id</td>
+<td>不能为空</td>
+</tr>
+<tr>
+<td>type</td>
+<td>1</td>
+<td>不能为空</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;code&quot;</span>: <span class="number">200</span>,</span><br><span class="line">	<span class="string">&quot;msg&quot;</span>: <span class="string">&quot;成功&quot;</span>,</span><br><span class="line">	<span class="string">&quot;data&quot;</span>: &#123;</span><br><span class="line">		<span class="string">&quot;total&quot;</span>: <span class="number">9</span>,</span><br><span class="line">		<span class="string">&quot;current_page&quot;</span>: <span class="number">1</span>,</span><br><span class="line">		<span class="string">&quot;list&quot;</span>: []</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3-3-详情的时间排序"><a href="#3-3-详情的时间排序" class="headerlink" title="3.3 详情的时间排序"></a>3.3 详情的时间排序</h4><ul>
+<li><p>请求路径：courseInfo/orderByChapterList/:course_id [url 动态路由传参]</p>
+</li>
+<li><p>请求方式：GET</p>
+</li>
+<li><p>请求参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>course_id</strong></td>
+<td>1302</td>
+<td>可以为空</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">code</span>:<span class="number">200</span>,</span><br><span class="line">    <span class="attr">msg</span>:<span class="string">&quot;成功&quot;</span>,</span><br><span class="line">    <span class="attr">data</span>:[...数据]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3-4-课前准备"><a href="#3-4-课前准备" class="headerlink" title="3.4 课前准备"></a>3.4 课前准备</h4><ul>
+<li><p>请求路径：getWechatInfo/:<strong>id</strong>[url 动态路由传参]</p>
+</li>
+<li><p>请求方式：GET</p>
+</li>
+<li><p>请求参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*<strong>*id**</strong></td>
+<td>1442</td>
+<td>可以为空</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;code&quot;</span>: <span class="number">200</span>,</span><br><span class="line">	<span class="string">&quot;msg&quot;</span>: <span class="string">&quot;成功&quot;</span>,</span><br><span class="line">	<span class="string">&quot;data&quot;</span>: &#123;</span><br><span class="line">        <span class="comment">//公众号</span></span><br><span class="line">		<span class="string">&quot;wechat_info&quot;</span>: <span class="literal">null</span>,</span><br><span class="line">         <span class="comment">//添加助教</span></span><br><span class="line">		<span class="string">&quot;teacher_wechat_info&quot;</span>: &#123;</span><br><span class="line">			<span class="string">&quot;id&quot;</span>: <span class="number">37</span>,</span><br><span class="line">			<span class="string">&quot;name&quot;</span>: <span class="string">&quot;23管综学习包&quot;</span>,</span><br><span class="line">			<span class="string">&quot;guided_words&quot;</span>: <span class="string">&quot;添加助教，进学习群领高分资料&quot;</span>,</span><br><span class="line">			<span class="string">&quot;sign_guided_words&quot;</span>: <span class="string">&quot;进入学习交流群，找志同道合研友&quot;</span>,</span><br><span class="line">			<span class="string">&quot;explain1&quot;</span>: <span class="string">&quot;微信扫码添加助教&quot;</span>,</span><br><span class="line">			<span class="string">&quot;explain2&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">			<span class="string">&quot;explain3&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">			<span class="string">&quot;code_url&quot;</span>: <span class="string">&quot;https://lexuemiao.oss-cn-beijing.aliyuncs.com/uploads/image/202170je2tk81640860570.png&quot;</span>,</span><br><span class="line">			<span class="string">&quot;created_at&quot;</span>: <span class="number">1623918381</span>,</span><br><span class="line">			<span class="string">&quot;updated_at&quot;</span>: <span class="number">1640860687</span>,</span><br><span class="line">			<span class="string">&quot;deleted_at&quot;</span>: <span class="literal">null</span>,</span><br><span class="line">			<span class="string">&quot;media_id&quot;</span>: <span class="string">&quot;B0PUinFPcRgd_RFw7Gqo2zTqv30G171ngtLPLSOfOyq8kY518ffg_YiyMRWk5PO7&quot;</span>,</span><br><span class="line">			<span class="string">&quot;media_at&quot;</span>: <span class="number">1654665931</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="4-我的登录注册"><a href="#4-我的登录注册" class="headerlink" title="4.我的登录注册"></a>4.我的登录注册</h3><h4 id="4-1-图形验证码"><a href="#4-1-图形验证码" class="headerlink" title="4.1 图形验证码"></a>4.1 图形验证码</h4><ul>
+<li><p>请求路径:getImgCode</p>
+</li>
+<li><p>请求方式:GET</p>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;code&quot;</span>: <span class="number">200</span>,</span><br><span class="line">	<span class="string">&quot;msg&quot;</span>: <span class="string">&quot;成功&quot;</span>,</span><br><span class="line">	<span class="string">&quot;data&quot;</span>: &#123;</span><br><span class="line">		<span class="string">&quot;url&quot;</span>: &#123;</span><br><span class="line">			<span class="string">&quot;sensitive&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">			<span class="string">&quot;key&quot;</span>: <span class="string">&quot;$2y$10$9540caGULpc8mraun0Gyl.2h2B4J/o8k8SUOYX3fC0ZSRmJmNLuqS&quot;</span>,</span><br><span class="line">             <span class="comment">//验证码图片</span></span><br><span class="line">			<span class="string">&quot;img&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="4-2appLogo"><a href="#4-2appLogo" class="headerlink" title="4.2appLogo"></a>4.2appLogo</h4><ul>
+<li><p>请求路径:webConfig</p>
+</li>
+<li><p>请求方式:GET</p>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;code&quot;</span>: <span class="number">200</span>,</span><br><span class="line">	<span class="string">&quot;msg&quot;</span>: <span class="string">&quot;成功&quot;</span>,</span><br><span class="line">	<span class="string">&quot;data&quot;</span>: &#123;</span><br><span class="line">		<span class="string">&quot;site_name&quot;</span>: <span class="string">&quot;乐学喵&quot;</span>,</span><br><span class="line">		<span class="string">&quot;site_logo&quot;</span>: <span class="string">&quot;https://lexuemiao.oss-cn-beijing.aliyuncs.com/uploads/image/2022tb70dk1a1645166432.png&quot;</span>,</span><br><span class="line">		<span class="string">&quot;site_description&quot;</span>: <span class="string">&quot;乐学喵&quot;</span>,</span><br><span class="line">		<span class="string">&quot;site_keywords&quot;</span>: <span class="string">&quot;乐学喵&quot;</span>,</span><br><span class="line">		<span class="string">&quot;site_copyright&quot;</span>: <span class="string">&quot;Copyright © 2018 京ICP备19028088号-1   京公网安备 11010802032607号  &amp;nbsp;|&amp;nbsp;京网文  [2020] 0019-010号 &amp;nbsp;|&amp;nbsp;北京乐学喵教育科技有限公司 版权所有 Powered by 乐学喵&quot;</span>,</span><br><span class="line">		<span class="string">&quot;site_webUrl&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">		<span class="string">&quot;site_wapUrl&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">		<span class="string">&quot;site_phone&quot;</span>: <span class="string">&quot;18888888888&quot;</span>,</span><br><span class="line">		<span class="string">&quot;IosCode&quot;</span>: <span class="string">&quot;https://lexuemiao.oss-cn-beijing.aliyuncs.com/uploads/image/20196wxfe4911561965703.png&quot;</span>,</span><br><span class="line">		<span class="string">&quot;AndCode&quot;</span>: <span class="string">&quot;https://lexuemiao.oss-cn-beijing.aliyuncs.com/uploads/image/2019uloiocp61561809014.png&quot;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="4-3-获取手机验证码"><a href="#4-3-获取手机验证码" class="headerlink" title="4.3 获取手机验证码"></a>4.3 获取手机验证码</h4><ul>
+<li><p>请求路径:getsmscode</p>
+</li>
+<li><p>请求方式:POST</p>
+</li>
+<li><p>请求参数:</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mobile</td>
+<td>手机号</td>
+<td>不能为空</td>
+</tr>
+<tr>
+<td>sms_type</td>
+<td>“login”，“editmobile”</td>
+<td>不能为空</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">code</span>: <span class="number">200</span></span><br><span class="line">    <span class="attr">data</span>: <span class="number">2597630</span></span><br><span class="line">    <span class="attr">msg</span>: <span class="string">&quot;成功&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="4-4-登录注册页登录"><a href="#4-4-登录注册页登录" class="headerlink" title="4.4 登录注册页登录"></a>4.4 登录注册页登录</h4><ul>
+<li><p>请求路径:login</p>
+</li>
+<li><p>请求方式:POST</p>
+</li>
+<li><p>请求参数:</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>captcha</td>
+<td>图片验证码</td>
+<td>不能为空</td>
+</tr>
+<tr>
+<td>device_id</td>
+<td>“1”</td>
+<td>不能为空</td>
+</tr>
+<tr>
+<td>device_type</td>
+<td>“2”</td>
+<td>不能为空</td>
+</tr>
+<tr>
+<td>key</td>
+<td>图形验证码饭返回的 key 值</td>
+<td>不能为空</td>
+</tr>
+<tr>
+<td>mobile</td>
+<td>手机号</td>
+<td>不能为空</td>
+</tr>
+<tr>
+<td>sms_code</td>
+<td>手机验证码</td>
+<td>不能为空</td>
+</tr>
+<tr>
+<td>user_pass</td>
+<td>手机密码 默认“000000”</td>
+<td>不能为空</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">code</span>: <span class="number">200</span></span><br><span class="line">    <span class="attr">data</span>: &#123;...返回基本信息&#125;</span><br><span class="line">    <span class="attr">msg</span>: <span class="string">&quot;成功&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="4-5-设置密码"><a href="#4-5-设置密码" class="headerlink" title="4.5 设置密码"></a>4.5 设置密码</h4><ul>
+<li><p>请求路径:getpassword</p>
+</li>
+<li><p>请求方式:POST</p>
+</li>
+<li><p>请求参数:</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mobile</td>
+<td>手机号</td>
+<td>不能为空</td>
+</tr>
+<tr>
+<td>sms_code</td>
+<td>手机验证码</td>
+<td>不能为空</td>
+</tr>
+<tr>
+<td>user_pass</td>
+<td>手机密码</td>
+<td>不能为空</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">code</span>: <span class="number">200</span></span><br><span class="line">    <span class="attr">data</span>: <span class="string">&quot;修改成功&quot;</span></span><br><span class="line">    <span class="attr">msg</span>: <span class="string">&quot;成功&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="4-6-用户基本信息"><a href="#4-6-用户基本信息" class="headerlink" title="4.6 用户基本信息"></a>4.6 用户基本信息</h4><ul>
+<li><p>请求路径:showone/id=:id</p>
+</li>
+<li><p>请求方式:GET</p>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">code</span>: <span class="number">200</span></span><br><span class="line">    <span class="attr">data</span>: &#123;<span class="attr">user_id</span>: <span class="number">433775</span>, <span class="attr">user_name</span>: <span class="string">&quot;ZYWX_UZcYkD&quot;</span>, <span class="attr">user_nickname</span>: <span class="string">&quot;177****9202&quot;</span>, <span class="attr">sex</span>: <span class="number">3</span>, <span class="attr">birthday</span>: <span class="string">&quot;0&quot;</span>,…&#125;</span><br><span class="line">    <span class="attr">msg</span>: <span class="string">&quot;成功&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="4-7-关于我们"><a href="#4-7-关于我们" class="headerlink" title="4.7 关于我们"></a>4.7 关于我们</h4><ul>
+<li><p>请求路径:about/type=1</p>
+</li>
+<li><p>请求方式:GET</p>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">code</span>: <span class="number">200</span></span><br><span class="line">    <span class="attr">data</span>: &#123;<span class="attr">about_info</span>: &#123;<span class="attr">about_id</span>: <span class="number">1</span>, <span class="attr">type</span>: <span class="number">1</span>,…&#125;&#125;</span><br><span class="line">    <span class="attr">msg</span>: <span class="string">&quot;成功&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="4-8-更新用户信息"><a href="#4-8-更新用户信息" class="headerlink" title="4.8 更新用户信息"></a>4.8 更新用户信息</h4><ul>
+<li><p>请求路径 updateInfo</p>
+</li>
+<li><p>请求方式 PUT</p>
+</li>
+<li><p>请求参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>birthday</td>
+<td>出生日期</td>
+<td></td>
+</tr>
+<tr>
+<td>id</td>
+<td>用户 id</td>
+<td></td>
+</tr>
+<tr>
+<td>province_id</td>
+<td>省份</td>
+<td></td>
+</tr>
+<tr>
+<td>city_id</td>
+<td>市</td>
+<td></td>
+</tr>
+<tr>
+<td>area_id</td>
+<td>区</td>
+<td></td>
+</tr>
+<tr>
+<td>grade_id</td>
+<td>年级 id</td>
+<td></td>
+</tr>
+<tr>
+<td>major</td>
+<td>报考专业</td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">code</span>: <span class="number">200</span></span><br><span class="line">    <span class="attr">data</span>: &#123;<span class="attr">info</span>: <span class="string">&quot;成功&quot;</span>, <span class="attr">avatar</span>: <span class="string">&quot;&quot;</span>&#125;</span><br><span class="line">    <span class="attr">msg</span>: <span class="string">&quot;成功&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="4-9-省市区接口"><a href="#4-9-省市区接口" class="headerlink" title="4.9 省市区接口"></a>4.9 省市区接口</h4><ul>
+<li><p>请求路径：area/city</p>
+</li>
+<li><p>请求方式：POST</p>
+</li>
+<li><p>请求参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>parent_id</td>
+<td>省市区的 id</td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">code</span>: <span class="number">200</span></span><br><span class="line">    <span class="attr">data</span>: &#123;<span class="attr">city_list</span>: [&#123;<span class="attr">id</span>: <span class="number">110101</span>, <span class="attr">area_name</span>: <span class="string">&quot;东城区&quot;</span>, <span class="attr">area_code</span>: <span class="string">&quot;Dongcheng&quot;</span>&#125;,…]&#125;</span><br><span class="line">    <span class="attr">msg</span>: <span class="string">&quot;成功&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="5-收藏"><a href="#5-收藏" class="headerlink" title="5.收藏"></a>5.收藏</h3><h4 id="5-1-收藏的添加和删除"><a href="#5-1-收藏的添加和删除" class="headerlink" title="5.1 收藏的添加和删除"></a>5.1 收藏的添加和删除</h4><ul>
+<li><p>请求路径:collect</p>
+</li>
+<li><p>请求方式:POST</p>
+</li>
+<li><p>请求参数:</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>basis_id</td>
+<td>详情 id</td>
+<td>不能为空</td>
+</tr>
+<tr>
+<td>type</td>
+<td>1</td>
+<td>不能为空</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">code</span>: <span class="number">200</span></span><br><span class="line">    <span class="attr">data</span>: &#123;<span class="attr">is_collect</span>: <span class="number">1</span>&#125;</span><br><span class="line">    <span class="attr">msg</span>: <span class="string">&quot;收藏成功&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="5-2-收藏的列表"><a href="#5-2-收藏的列表" class="headerlink" title="5.2 收藏的列表"></a>5.2 收藏的列表</h4><ul>
+<li><p>请求路径:collect</p>
+</li>
+<li><p>请求方式:GET</p>
+</li>
+<li><p>响应数据:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">code</span>: <span class="number">200</span></span><br><span class="line">    <span class="attr">data</span>: &#123;<span class="attr">total</span>: <span class="number">1</span>, <span class="attr">current_page</span>: <span class="number">1</span>,…&#125;</span><br><span class="line">    <span class="attr">msg</span>: <span class="string">&quot;成功&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="5-3-我的优惠券"><a href="#5-3-我的优惠券" class="headerlink" title="5.3 我的优惠券"></a>5.3 我的优惠券</h4><ul>
+<li><p>请求路径:getUserCouponList</p>
+</li>
+<li><p>请求方式:GET</p>
+</li>
+<li><p>请求参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>states</td>
+<td>状态</td>
+<td>不能为空</td>
+</tr>
+</tbody></table>
+<p>0:未使用</p>
+<p>1：已使用</p>
+<p>2 已过期</p>
+<p>3 全部</p>
+</li>
+<li><p>响应数据:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">code</span>: <span class="number">200</span></span><br><span class="line">    <span class="attr">data</span>: &#123;<span class="attr">total</span>: <span class="number">0</span>, <span class="attr">current_page</span>: <span class="number">1</span>, <span class="attr">list</span>: []&#125;</span><br><span class="line">    <span class="attr">msg</span>: <span class="string">&quot;成功&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="5-4-问题反馈"><a href="#5-4-问题反馈" class="headerlink" title="5.4 问题反馈"></a>5.4 问题反馈</h4><ul>
+<li><p>请求路径:feedbackadd</p>
+</li>
+<li><p>请求方式:POST</p>
+</li>
+<li><p>请求参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>feedback_info</td>
+<td>内容</td>
+<td>不能为空</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>用户 id</td>
+<td>不能为空</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">code</span>: <span class="number">200</span></span><br><span class="line">    <span class="attr">data</span>: &#123;<span class="attr">id</span>: <span class="number">2370</span>&#125;</span><br><span class="line">    <span class="attr">msg</span>: <span class="string">&quot;成功&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="5-5-我的消息"><a href="#5-5-我的消息" class="headerlink" title="5.5 我的消息"></a>5.5 我的消息</h4><ul>
+<li><p>请求路径:message/getMessage/message_classify=:id</p>
+</li>
+<li><p>请求方式:POST</p>
+</li>
+<li><p>请求参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>message_classify</td>
+<td>内容</td>
+<td>不能为空</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">code</span>: <span class="number">200</span></span><br><span class="line">    <span class="attr">data</span>: &#123;<span class="attr">total</span>: <span class="number">0</span>, <span class="attr">current_page</span>: <span class="number">1</span>, <span class="attr">list</span>: []&#125;</span><br><span class="line">    <span class="attr">msg</span>: <span class="string">&quot;成功&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="5-5-我的订单"><a href="#5-5-我的订单" class="headerlink" title="5.5 我的订单"></a>5.5 我的订单</h4><ul>
+<li><p>请求路径：<a target="_blank" rel="noopener" href="https://www.lexuemiao.com/api/order">https://www.lexuemiao.com/api/order</a></p>
+</li>
+<li><p>请求方式：POST</p>
+</li>
+<li><p>请求参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>page</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pay_states</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>用户 id</td>
+<td></td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">page</span>: <span class="string">&quot;first&quot;</span>,</span><br><span class="line">    <span class="attr">title</span>: <span class="string">&quot;全部&quot;</span>,</span><br><span class="line">    <span class="attr">id</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">pay_states</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123; <span class="attr">page</span>: <span class="string">&quot;second&quot;</span>, <span class="attr">title</span>: <span class="string">&quot;待支付&quot;</span>, <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">pay_states</span>: <span class="number">1</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">page</span>: <span class="string">&quot;third&quot;</span>, <span class="attr">title</span>: <span class="string">&quot;代收讲义&quot;</span>, <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">pay_states</span>: <span class="number">8</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">page</span>: <span class="string">&quot;fourth&quot;</span>, <span class="attr">title</span>: <span class="string">&quot;已完成&quot;</span>, <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">pay_states</span>: <span class="number">7</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">page</span>: <span class="string">&quot;fifth&quot;</span>, <span class="attr">title</span>: <span class="string">&quot;已取消&quot;</span>, <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">pay_states</span>: <span class="number">3</span> &#125;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure></li>
+<li><p>响应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">code</span>: <span class="number">200</span></span><br><span class="line">    <span class="attr">data</span>: &#123;<span class="attr">current_page</span>: <span class="number">1</span>, <span class="attr">data</span>: [], <span class="attr">first_page_url</span>: <span class="string">&quot;http://www.lexuemiao.com/api/order?page=1&quot;</span>, <span class="attr">from</span>: <span class="literal">null</span>,…&#125;</span><br><span class="line">    <span class="attr">msg</span>: <span class="string">&quot;成功&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="5-6-订单详情"><a href="#5-6-订单详情" class="headerlink" title="5.6 订单详情"></a>5.6 订单详情</h4><ul>
+<li><p>请求路径<a target="_blank" rel="noopener" href="https://www.lexuemiao.com/api/order/orderdetails">https://www.lexuemiao.com/api/order/orderdetails</a></p>
+</li>
+<li><p>请求方式 POST</p>
+</li>
+<li><p>请求参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>order_id</td>
+<td>订单 id</td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    code: 200</span><br><span class="line">    data: &#123;,…&#125;</span><br><span class="line">    msg: &quot;成功&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="6-学习课程"><a href="#6-学习课程" class="headerlink" title="6.学习课程"></a>6.学习课程</h3><h4 id="6-1-我的课"><a href="#6-1-我的课" class="headerlink" title="6.1 我的课"></a>6.1 我的课</h4><ul>
+<li><p>请求路径：myCourse/studyCourseList</p>
+</li>
+<li><p>请求方式：GET</p>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    code<span class="punctuation">:</span> <span class="number">200</span></span><br><span class="line">    data<span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">,</span>…<span class="punctuation">]</span></span><br><span class="line">    msg<span class="punctuation">:</span> <span class="string">&quot;成功&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="6-2-全部课程判断"><a href="#6-2-全部课程判断" class="headerlink" title="6.2 全部课程判断"></a>6.2 全部课程判断</h4><ul>
+<li><p>请求路径：myCourse</p>
+</li>
+<li><p>请求方式：GET</p>
+</li>
+<li><p>请求参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>type</strong></td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>is_free</strong></td>
+<td>‘’全部,2 付费，1 免费</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>study_status</strong></td>
+<td>‘’全部状态 1 学习中 2 已完成 3 已过期 4 已隐藏</td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">code</span>: <span class="number">200</span></span><br><span class="line">    <span class="attr">data</span>: [,…]</span><br><span class="line">    <span class="attr">msg</span>: <span class="string">&quot;成功&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="6-3-学习记录"><a href="#6-3-学习记录" class="headerlink" title="6.3 学习记录"></a>6.3 学习记录</h4><ul>
+<li><p>请求路径 myCourse/studyList</p>
+</li>
+<li><p>请求方式 GET</p>
+</li>
+<li><p>请求参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>page</td>
+<td>页数</td>
+<td></td>
+</tr>
+<tr>
+<td>limit</td>
+<td>条数</td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>响应数据</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    code<span class="punctuation">:</span> <span class="number">200</span></span><br><span class="line">    data<span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">&#123;</span>course_id<span class="punctuation">:</span> <span class="number">1051</span><span class="punctuation">,</span> course_title<span class="punctuation">:</span> <span class="string">&quot;23《老吕数学要点精编》逐题精讲&quot;</span><span class="punctuation">,</span> course_type<span class="punctuation">:</span> <span class="number">5</span><span class="punctuation">,</span> course_periods_id<span class="punctuation">:</span> <span class="number">10639</span><span class="punctuation">,</span>…<span class="punctuation">&#125;</span><span class="punctuation">,</span>…<span class="punctuation">]</span></span><br><span class="line">    limit<span class="punctuation">:</span> <span class="number">15</span></span><br><span class="line">    msg<span class="punctuation">:</span> <span class="string">&quot;成功&quot;</span></span><br><span class="line">    page<span class="punctuation">:</span> <span class="number">1</span></span><br><span class="line">    total_count<span class="punctuation">:</span> <span class="number">2</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section><section id="share"><div class="header"><span>分享文章</span></div><div class="body"><div class="link"><input class="copy-area" readonly="true" id="copy-link" value="https://guollove.github.io/2022/10/14/2022-10-14%E4%B9%90%E5%AD%A6%E5%96%B5%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/" /></div><div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot)"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/b32ef3da1162a.svg"/></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=https://guollove.github.io/2022/10/14/2022-10-14%E4%B9%90%E5%AD%A6%E5%96%B5%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/&title=乐学喵接口文档 - Guollove&summary=api 接口"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/80c07e4dbb303.svg"/></a><a class="social share-item email" href="mailto:?subject=乐学喵接口文档 - Guollove&amp;body=https://guollove.github.io/2022/10/14/2022-10-14%E4%B9%90%E5%AD%A6%E5%96%B5%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/a1b00e20f425d.svg"/></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://fastly.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/8411ed322ced6.svg"/></a></div><div class="qrcode" id="qrcode-wechat" style="visibility:hidden;height:0"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=https://guollove.github.io/2022/10/14/2022-10-14%E4%B9%90%E5%AD%A6%E5%96%B5%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/index.html"/></div></div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/09/29/2022-09-29CuteHttpFileServer/">CuteHttpFileServer文档<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/2022/12/05/2022-12-05Java_%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98/">Java_学习中的错误问题<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/tags/">标签</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/%E5%BC%80%E6%BA%90%E5%BA%93/">开源库</a><a href="/wiki/tags/%E5%AE%9E%E7%94%A8%E8%84%9A%E6%9C%AC/">实用脚本</a><a href="/wiki/tags/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98/">博客主题</a><a href="/wiki/tags/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/">应用程序</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friends/">友链</a><a href="/about/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a target="_blank" rel="noopener" href="https://github.com/guollove">GitHub</a><a target="_blank" rel="noopener" href="http://42.192.89.158:8099/explore">GitLab</a></div></div><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="https://guollove.github.io/">@Guollove</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0" title="v1.8.0">Stellar</a> 作为主题，您可以在 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/xaoxuu.github.io/">GitHub</a> 找到本站源码。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.8.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
